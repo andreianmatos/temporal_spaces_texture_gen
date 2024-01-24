@@ -14,4 +14,4 @@ The goal is to find an approach for generating diverse and realistic textures.
   
 - **datasets/**
   - *all_members_256.zip*: 256x256px textures, each encopassing all movement types.
-  - *all_members_256.zip*: 64x64px textures, each representing one movement type.
+  - *all_members_64.zip*: 64x64px textures, each representing one movement type.
