@@ -34,8 +34,8 @@ class CVAE {
 async function loadModels() {
     // Load the encoder and decoder models
 
-    const decoder = await tf.loadGraphModel('model_json/decoder_json/model.json');
-    const encoder = await tf.loadGraphModel('model_json/encoder_json/model.json');
+    const decoder = await tf.loadGraphModel('model_json/captures/500_epochs/decoder/model.json');
+    const encoder = await tf.loadGraphModel('model_json/captures/500_epochs/encoder/model.json');
     
     const latent_dim = 2;
     const loaded_model = new CVAE(latent_dim, encoder, decoder);
