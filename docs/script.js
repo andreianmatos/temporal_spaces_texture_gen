@@ -34,20 +34,20 @@ class CVAE {
 async function loadModels() {
     // Load the encoder and decoder models
 
-    const decoder = await tf.loadGraphModel('model_json/captures/1000_epochs/decoder/model.json');
-    const encoder = await tf.loadGraphModel('model_json/captures/1000_epochs/encoder/model.json');
+    const decoder = await tf.loadGraphModel('model_json/latent_dim_16/augmented_captures/horizontal_flip/250_epochs/decoder/model.json');
+    const encoder = await tf.loadGraphModel('model_json/latent_dim_16/augmented_captures/horizontal_flip/250_epochs/encoder/model.json');
     
-    const latent_dim = 2;
-    const loaded_model = new CVAE(latent_dim, encoder, decoder);
-
-    // Generate and display images
+    // !! update here the latent dim
+    const latentDim = 16;
     const numExamplesToGenerate = 10; // Change the desired number of examples
-    const latentDim = 2;
     const generatedImages = [];
+
+    const loaded_model = new CVAE(latentDim, encoder, decoder);
     
     for (let i = 0; i < numExamplesToGenerate; i++) {
       const randomVectorForGeneration = tf.randomNormal([1, latentDim]); // Generate a new random vector for each example
       const sample = await loaded_model.sample(randomVectorForGeneration);
+      console.log("a");
       const generatedImage = await generateImage(loaded_model, sample);
       console.log(generatedImage);
       generatedImages.push(generatedImage);
