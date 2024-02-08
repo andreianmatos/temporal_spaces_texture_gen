@@ -34,11 +34,11 @@ class CVAE {
 async function loadModels() {
     // Load the encoder and decoder models
 
-    const decoder = await tf.loadGraphModel('model_json/latent_dim_16/augmented_captures/horizontal_flip/250_epochs/decoder/model.json');
-    const encoder = await tf.loadGraphModel('model_json/latent_dim_16/augmented_captures/horizontal_flip/250_epochs/encoder/model.json');
+    const decoder = await tf.loadGraphModel('model_json/latent_dim_4/augmented_captures/horizontal_flip/250_epochs/decoder/model.json');
+    const encoder = await tf.loadGraphModel('model_json/latent_dim_4/augmented_captures/horizontal_flip/250_epochs/encoder/model.json');
     
     // !! update here the latent dim
-    const latentDim = 16;
+    const latentDim = 4;
     const numExamplesToGenerate = 10; // Change the desired number of examples
     const generatedImages = [];
 
